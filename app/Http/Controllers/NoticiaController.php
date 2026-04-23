@@ -2,64 +2,59 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\Noticia;
 use Illuminate\Http\Request;
 
 class NoticiaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $noticias = Noticia::orderByDesc('id')->get();
+        return view('noticias.index', compact('noticias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return redirect()->route('noticias.index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'conteudo' => 'required|string',
+            'data_publicacao' => 'required|date',
+        ]);
+
+        $noticia = Noticia::create($data);
+        return response()->json($noticia, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Noticia $noticia)
     {
-        //
+        return response()->json($noticia);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Noticia $noticia)
     {
-        //
+        return redirect()->route('noticias.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Noticia $noticia)
     {
-        //
+        $data = $request->validate([
+            'titulo' => 'required|string|max:255',
+            'conteudo' => 'required|string',
+            'data_publicacao' => 'required|date',
+        ]);
+
+        $noticia->update($data);
+        return response()->json($noticia);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Noticia $noticia)
     {
-        //
+        $noticia->delete();
+        return response()->json(['deleted' => true]);
     }
 }

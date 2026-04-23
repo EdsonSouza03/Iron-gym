@@ -7,7 +7,7 @@ use App\Http\Controllers\PagamentoController;
 use App\Http\Controllers\ProdutoController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('aulas.index');
 });
 
 Route::resource('aulas', AulaController::class);
