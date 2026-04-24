@@ -119,7 +119,7 @@
                 <section class="hero">
                     <!-- Logo Image -->
                     <div class="logo-container">
-                        <img src="{{ asset('images/iron-gym-logo.svg') }}" alt="Iron Gym Central" class="hero-image">
+                        <img src="/images/iron-gym-logo.svg" alt="Iron Gym Central" class="hero-image">
                     </div>
                     
                     <h2>Bem-vindo à Iron Gym</h2>
@@ -127,7 +127,7 @@
                     
                     <!-- Gym Image -->
                     <div class="gym-container">
-                        <img src="{{ asset('images/iron-gym-gym.svg') }}" alt="Sala de Treino Iron Gym" class="hero-image">
+                        <img src="/images/iron-gym-gym.svg" alt="Sala de Treino Iron Gym" class="hero-image">
                     </div>
                     
                     <div class="botoes">
