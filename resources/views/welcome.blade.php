@@ -86,6 +86,19 @@
                   background-color: var(--amarelo-metalico);
                 }
 
+                .logo-container,
+                .gym-container {
+                  margin: 30px 0;
+                }
+
+                .hero-image {
+                  max-width: 100%;
+                  width: 100%;
+                  height: auto;
+                  border-radius: 10px;
+                  box-shadow: 0 8px 20px rgba(246, 231, 29, 0.15);
+                }
+
                 footer {
                   background-color: var(--preto-suave);
                   text-align: center;
@@ -104,8 +117,19 @@
 
             <main>
                 <section class="hero">
+                    <!-- Logo Image -->
+                    <div class="logo-container">
+                        <img src="{{ asset('images/iron-gym-logo.svg') }}" alt="Iron Gym Central" class="hero-image">
+                    </div>
+                    
                     <h2>Bem-vindo à Iron Gym</h2>
                     <p>Transforme seu corpo e mente com nossos treinos personalizados.</p>
+                    
+                    <!-- Gym Image -->
+                    <div class="gym-container">
+                        <img src="{{ asset('images/iron-gym-gym.svg') }}" alt="Sala de Treino Iron Gym" class="hero-image">
+                    </div>
+                    
                     <div class="botoes">
                         @if (Route::has('login'))
                             @auth

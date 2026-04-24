@@ -1,0 +1,59 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#020202"/>
+  
+  <!-- Gym floor pattern -->
+  <defs>
+    <pattern id="floor" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#1a1a1a"/>
+      <line x1="0" y1="0" x2="40" y2="40" stroke="#F6E71D" stroke-width="1" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="600" fill="url(#floor)"/>
+  
+  <!-- Yellow lines on floor -->
+  <line x1="0" y1="500" x2="1000" y2="500" stroke="#F6E71D" stroke-width="8"/>
+  <line x1="0" y1="520" x2="1000" y2="520" stroke="#F6E71D" stroke-width="4" opacity="0.6"/>
+  
+  <!-- Wall with grunge effect -->
+  <rect width="1000" height="350" fill="#181818"/>
+  <circle cx="200" cy="150" r="100" fill="#F6E71D" opacity="0.2"/>
+  <circle cx="800" cy="200" r="150" fill="#F6E71D" opacity="0.15"/>
+  
+  <!-- "IRON GYM" text on wall -->
+  <text x="500" y="200" font-size="120" font-weight="900" fill="#F6E71D" text-anchor="middle" letter-spacing="8">
+    IRON GYM
+  </text>
+  
+  <!-- Dumbbells left side -->
+  <g id="dumbbell-left">
+    <!-- Dumbbell 1 -->
+    <rect x="50" y="450" width="15" height="80" fill="#F6E71D" rx="3"/>
+    <circle cx="57.5" cy="420" r="25" fill="#F6E71D"/>
+    <circle cx="57.5" cy="545" r="25" fill="#F6E71D"/>
+    <!-- Weight lines -->
+    <line x1="40" y1="410" x2="75" y2="410" stroke="#020202" stroke-width="1" opacity="0.5"/>
+    <line x1="40" y1="425" x2="75" y2="425" stroke="#020202" stroke-width="1" opacity="0.5"/>
+  </g>
+  
+  <!-- Dumbbells stacked -->
+  <use href="#dumbbell-left" x="0" y="0"/>
+  <use href="#dumbbell-left" x="80" y="20"/>
+  <use href="#dumbbell-left" x="160" y="40"/>
+  <use href="#dumbbell-left" x="240" y="20"/>
+  
+  <!-- Equipment bench -->
+  <rect x="450" y="480" width="100" height="15" fill="#F6E71D" rx="3"/>
+  <rect x="455" y="495" width="90" height="8" fill="#1a1a1a"/>
+  <line x1="460" y1="495" x2="540" y2="495" stroke="#F6E71D" stroke-width="2" opacity="0.4"/>
+  
+  <!-- Barbells on right -->
+  <g id="barbell">
+    <circle cx="750" cy="460" r="20" fill="#F6E71D"/>
+    <circle cx="850" cy="460" r="20" fill="#F6E71D"/>
+    <rect x="770" y="455" width="80" height="10" fill="#181818" rx="2"/>
+    <line x1="775" y1="460" x2="845" y2="460" stroke="#F6E71D" stroke-width="2" opacity="0.6"/>
+  </g>
+  <use href="#barbell" x="0" y="60"/>
+  <use href="#barbell" x="0" y="120"/>
+</svg>

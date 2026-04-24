@@ -1,0 +1,35 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <filter id="grunge">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="20" />
+    </filter>
+  </defs>
+  
+  <!-- Dark background -->
+  <rect width="800" height="600" fill="#020202"/>
+  
+  <!-- Textured wall with grunge effect -->
+  <rect width="800" height="600" fill="#181818" filter="url(#grunge)" opacity="0.8"/>
+  
+  <!-- Yellow splatter effect -->
+  <circle cx="150" cy="100" r="80" fill="#F6E71D" opacity="0.3"/>
+  <circle cx="700" cy="500" r="120" fill="#F6E71D" opacity="0.25"/>
+  <circle cx="600" cy="150" r="60" fill="#F6E71D" opacity="0.2"/>
+  
+  <!-- "CENTRAL" text -->
+  <text x="400" y="200" font-size="72" font-weight="bold" fill="#F6E71D" text-anchor="middle" letter-spacing="8">
+    CENTRAL
+  </text>
+  
+  <!-- "IRON GYM" text (larger) -->
+  <rect x="100" y="280" width="600" height="120" fill="#F6E71D" rx="10"/>
+  <text x="400" y="380" font-size="80" font-weight="900" fill="#020202" text-anchor="middle" letter-spacing="6">
+    IRON GYM
+  </text>
+  
+  <!-- Decorative lines -->
+  <line x1="50" y1="450" x2="750" y2="450" stroke="#F6E71D" stroke-width="3" opacity="0.6"/>
+  <line x1="50" y1="460" x2="750" y2="460" stroke="#F6E71D" stroke-width="2" opacity="0.4"/>
+</svg>
