@@ -12,13 +12,11 @@
         <div class="topbar-inner">
             <div class="brand-group">
                 <a href="{{ route('aulas.index') }}" class="brand">Iron Gym</a>
-                <p class="brand-subtitle">CRUD acadêmico de controle de aulas, notícias, pagamentos e produtos</p>
+                <p class="brand-subtitle">CRUD acadêmico de controle de aulas e pagamentos</p>
             </div>
             <nav class="main-nav">
                 <a href="{{ route('aulas.index') }}" class="{{ request()->routeIs('aulas.*') ? 'active' : '' }}">Aulas</a>
-                <a href="{{ route('noticias.index') }}" class="{{ request()->routeIs('noticias.*') ? 'active' : '' }}">Notícias</a>
                 <a href="{{ route('pagamentos.index') }}" class="{{ request()->routeIs('pagamentos.*') ? 'active' : '' }}">Pagamentos</a>
-                <a href="{{ route('produtos.index') }}" class="{{ request()->routeIs('produtos.*') ? 'active' : '' }}">Produtos</a>
             </nav>
         </div>
     </header>
