@@ -3,8 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AulaController;
 use App\Http\Controllers\PagamentoController;
-use App\Http\Controllers\AlunoController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return auth()->check() ? redirect()->route('dashboard') : view('welcome');
@@ -14,9 +13,7 @@ Route::get('/', function () {
 Route::get('/register', [AlunoController::class, 'publicCreate'])->name('alunos.register');
 Route::post('/register', [AlunoController::class, 'publicStore'])->name('alunos.register.store');
 
-Route::get('/dashboard', function () {
-    return redirect()->route('aulas.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
