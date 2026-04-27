@@ -17,4 +17,9 @@ class Aluno extends Model
     {
         return $this->hasMany(Pagamento::class, 'user_id');
     }
+
+    public function aulas()
+    {
+        return $this->belongsToMany(Aula::class, 'aluno_aula')->withPivot('status')->withTimestamps();
+    }
 }

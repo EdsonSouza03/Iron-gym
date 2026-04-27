@@ -12,4 +12,9 @@ class Aula extends Model
         'atividade',
         'professor',
     ];
+
+    public function alunos()
+    {
+        return $this->belongsToMany(Aluno::class, 'aluno_aula')->withPivot('status')->withTimestamps();
+    }
 }
