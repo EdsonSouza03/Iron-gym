@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pagamento;
+use App\Models\Aluno;
 use Illuminate\Http\Request;
 
 class PagamentoController extends Controller
 {
     public function index()
     {
-        $pagamentos = Pagamento::orderByDesc('id')->get();
-        return view('pagamentos.index', compact('pagamentos'));
+        $pagamentos = Pagamento::with('aluno')->orderByDesc('id')->get();
+        $alunos = Aluno::all();
+        return view('pagamentos.index', compact('pagamentos', 'alunos'));
     }
 
     public function create()
@@ -24,7 +26,7 @@ class PagamentoController extends Controller
         $request->merge(['valor' => $valorSanitizado]);
 
         $data = $request->validate([
-            'usuario' => 'required|string|max:255',
+            'user_id' => 'required|exists:alunos,id',
             'status' => 'required|string|max:100',
             'valor' => 'required|numeric',
             'data_vencimento' => 'required|date',
@@ -50,7 +52,7 @@ class PagamentoController extends Controller
         $request->merge(['valor' => $valorSanitizado]);
 
         $data = $request->validate([
-            'usuario' => 'required|string|max:255',
+            'user_id' => 'required|exists:alunos,id',
             'status' => 'required|string|max:100',
             'valor' => 'required|numeric',
             'data_vencimento' => 'required|date',

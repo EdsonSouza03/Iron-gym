@@ -16,8 +16,13 @@
         <form id="crudForm" class="form-grid">
             <h3 id="formTitle" class="form-title">Criar novo pagamento</h3>
             <div class="form-group">
-                <label for="usuario">Usuário</label>
-                <input id="usuario" name="usuario" type="text" placeholder="Nome do usuário" required>
+                <label for="user_id">Aluno</label>
+                <select id="user_id" name="user_id" required>
+                    <option value="">Selecione um aluno</option>
+                    @foreach($alunos as $aluno)
+                        <option value="{{ $aluno->id }}">{{ $aluno->nome }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="status">Status</label>
@@ -47,7 +52,7 @@
         <table id="crudTable">
             <thead>
                 <tr>
-                    <th>Usuário</th>
+                    <th>Aluno</th>
                     <th>Status</th>
                     <th>Valor</th>
                     <th>Vencimento</th>
@@ -57,12 +62,12 @@
             <tbody>
                 @foreach($pagamentos as $pagamento)
                     <tr data-id="{{ $pagamento->id }}">
-                        <td>{{ $pagamento->usuario }}</td>
+                        <td>{{ $pagamento->aluno ? $pagamento->aluno->nome : $pagamento->usuario }}</td>
                         <td>{{ $pagamento->status }}</td>
                         <td>R$ {{ number_format($pagamento->valor, 2, ',', '.') }}</td>
                         <td>{{ $pagamento->data_vencimento }}</td>
                         <td class="actions">
-                            <button type="button" class="btn edit-btn" data-item='@json($pagamento, JSON_HEX_APOS | JSON_HEX_QUOT)'>Editar</button>
+                            <button type="button" class="btn edit-btn" data-item='@json($pagamento->toArray() + ["user_id" => $pagamento->user_id], JSON_HEX_APOS | JSON_HEX_QUOT)'>Editar</button>
                             <button type="button" class="btn delete-btn" data-id="{{ $pagamento->id }}">Excluir</button>
                         </td>
                     </tr>
