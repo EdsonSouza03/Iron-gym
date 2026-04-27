@@ -11,5 +11,11 @@ class Pagamento extends Model
         'status',
         'valor',
         'data_vencimento',
+        'user_id',
     ];
+
+    public function aluno()
+    {
+        return $this->belongsTo(Aluno::class, 'user_id');
+    }
 }

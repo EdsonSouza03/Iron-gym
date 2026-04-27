@@ -17,6 +17,8 @@
             <nav class="main-nav">
                 <a href="{{ route('aulas.index') }}" class="{{ request()->routeIs('aulas.*') ? 'active' : '' }}">Aulas</a>
                 <a href="{{ route('pagamentos.index') }}" class="{{ request()->routeIs('pagamentos.*') ? 'active' : '' }}">Pagamentos</a>
+                <a href="{{ route('alunos.index') }}" class="{{ request()->routeIs('alunos.*') ? 'active' : '' }}">Alunos</a>
+                <a href="{{ route('alunos.register') }}" class="register-link">Cadastrar-se</a>
             </nav>
         </div>
     </header>
