@@ -107,6 +107,26 @@ textarea {
   border-radius: 22px;
   padding: 28px;
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/images/iron-gym-gym.svg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.panel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .panel-header {
