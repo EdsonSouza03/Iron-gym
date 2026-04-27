@@ -11,7 +11,10 @@
     <header class="topbar">
         <div class="topbar-inner">
             <div class="brand-group">
-                <a href="{{ route('aulas.index') }}" class="brand">Iron Gym</a>
+                <a href="{{ route('aulas.index') }}" class="brand">
+                    <img src="{{ asset('images/iron-gym-logo.svg') }}" alt="Iron Gym Logo" class="brand-logo">
+                    Iron Gym
+                </a>
                 <p class="brand-subtitle">CRUD acadêmico de controle de aulas e pagamentos</p>
             </div>
             <nav class="main-nav">
