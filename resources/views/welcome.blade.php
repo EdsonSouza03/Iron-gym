@@ -23,16 +23,31 @@
                   padding: 0;
                 }
 
-                body {
-                  font-family: 'Segoe UI', sans-serif;
-                  background-color: var(--preto-intenso);
-                  background-image: url('/images/iron-gym-gym.svg');
-                  background-attachment: fixed;
-                  background-size: cover;
-                  background-position: center;
-                  background-repeat: no-repeat;
-                  color: #fff;
+               body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('/images/bg-gym.jpg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+} 
+
+
+  body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 0;
+
                 }
+.home-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
 
                 header {
                   background-color: var(--preto-suave);
@@ -50,15 +65,16 @@
                   text-align: center;
                 }
 
-                .hero {
-                  background-color: var(--preto-suave);
-                  background-image: url('/images/iron-gym-logo.svg');
-                  background-size: contain;
-                  background-position: top center;
-                  background-repeat: no-repeat;
-                  padding: 300px 20px 60px 20px;
+                  .hero {
+                  background-color: rgba(24, 24, 24, 0.95);
+                  padding: 60px 20px;
                   border-radius: 10px;
-                  box-shadow: 0 0 10px rgba(246, 231, 29, 0.2);
+                  box-shadow: 0 0 20px rgba(246, 231, 29, 0.2);
+                  max-width: 600px;
+                  margin: 0 auto;
+                  position: relative;
+                  overflow: hidden;
+
                 }
 
                 .hero h2 {
