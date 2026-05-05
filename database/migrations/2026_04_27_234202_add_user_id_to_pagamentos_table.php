@@ -5,25 +5,19 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+    {
     public function up(): void
     {
-        Schema::table('pagamentos', function (Blueprint $table) {
-            $table->foreignId('user_id')->nullable()->constrained('alunos')->onDelete('cascade');
+        Schema::create('alunos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('email')->unique();
+            $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+                                
     public function down(): void
     {
-        Schema::table('pagamentos', function (Blueprint $table) {
-            $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
-        });
+        Schema::dropIfExists('alunos');
     }
-};
+    };

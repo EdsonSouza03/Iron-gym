@@ -24,29 +24,29 @@
                 }
 
                body {
-  font-family: 'Segoe UI', sans-serif;
-  background: url('/images/bg-gym.jpg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  color: #fff;
-  position: relative;
-} 
+                    font-family: 'Segoe UI', sans-serif;
+                    background: url('/images/bg-gym.jpg.jpg') no-repeat center center fixed;
+                    background-size: cover;
+                    color: #fff;
+                    position: relative;
+                } 
 
 
-  body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  z-index: 0;
+               body::before {
+                   content: "";
+                   position: fixed;
+                   top: 0;
+                   left: 0;
+                   width: 100%;
+                   height: 100%;
+                   background: rgba(0,0,0,0.7);
+                   z-index: 0;
 
                 }
-.home-wrapper {
-  position: relative;
-  z-index: 1;
-}
+                  .home-wrapper {
+                   position: relative;
+                   z-index: 1;
+                }
 
 
                 header {
