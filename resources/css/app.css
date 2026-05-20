@@ -1,3 +1,333 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('/images/bg-gym.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--cinza-claro);
+  position: relative;
+}
+
+:root {
+  --preto-intenso: #020202;
+  --preto-suave: #181818;
+  --amarelo-vibrante: #F6E71D;
+  --amarelo-metalico: #F5D10D;
+  --cinza-claro: #ccc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--preto-intenso);
+  background-image: url('/images/bg-gym.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.home-wrapper {
+  min-height: 100vh;
+}
+
+header {
+  background-color: transparent;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  color: var(--amarelo-vibrante);
+  margin-bottom: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+main {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  background-color: rgba(24, 24, 24, 0.55);
+  background-blend-mode: overlay;
+  padding: 0 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 6px 30px rgba(2,2,2,0.6);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2,2,2,0.35), rgba(2,2,2,0.6));
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 40px 20px;
+}
+
+/* Hero background image placed via markup for responsive WebP fallback */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.55) saturate(0.95);
+  transform: scale(1.02);
+}
+
+.hero h2 {
+  color: var(--amarelo-vibrante);
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.hero p {
+  color: var(--cinza-claro);
+  margin-bottom: 30px;
+  font-size: 1.2em;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Hero-specific button styles to center and emphasize */
+.hero .btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+.hero .btn:hover { transform: translateY(-2px); }
+.hero .btn.btn-accent { background: var(--amarelo-vibrante); color: var(--preto-intenso); border: none; }
+
+/* Form inputs highlight (yellow theme) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  background: rgba(255,255,255,0.03);
+  color: var(--cinza-claro);
+  border: 1px solid rgba(246,231,29,0.12);
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+
+input::placeholder, textarea::placeholder { color: rgba(204,204,204,0.5); }
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--amarelo-vibrante);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 0 6px rgba(246,231,29,0.06);
+  transform: translateY(-1px);
+}
+
+.form-group input, .form-group select { width: 100%; }
+
+/* Label styling for form fields */
+.form-label {
+  color: var(--amarelo-vibrante);
+  font-weight: 700;
+}
+
+.btn {
+  padding: 15px 30px;
+  background-color: var(--amarelo-vibrante);
+  border: none;
+  border-radius: 5px;
+  color: var(--preto-intenso);
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--amarelo-metalico);
+}
+
+
+@media (max-width: 768px) {
+  .hero-image {
+    max-width: 90%;
+  }
+}
+
+/* Image utility classes */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.img-thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Panels, tables and buttons for admin UI */
+.panel {
+  max-width: 1100px;
+  margin: 24px auto;
+  background: var(--preto-suave);
+  color: var(--cinza-claro);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(90deg, rgba(24,24,24,0.9), rgba(16,16,16,0.9));
+}
+
+.panel-header h2 { margin: 0; font-size: 1.25rem; color: var(--amarelo-vibrante); }
+.panel-header p { margin: 0; color: var(--cinza-claro); font-size: 0.95rem; }
+
+.form-panel { padding: 18px 22px; }
+.form-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); }
+.form-group label { display:block; font-weight:600; margin-bottom:6px; }
+.form-actions { display:flex; gap:10px; margin-top:12px; }
+
+.table-panel { padding: 18px 22px; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: transparent; }
+table thead th { text-align: left; padding: 12px 10px; background: rgba(246,231,29,0.06); color: var(--amarelo-vibrante); font-weight:700; }
+table tbody td { padding: 12px 10px; border-top: 1px solid rgba(255,255,255,0.03); color: var(--cinza-claro); }
+table tr:hover td { background: rgba(246,231,29,0.03); }
+
+.actions { display:flex; gap:8px; }
+
+/* Buttons used across views */
+.primary-button, .btn-primary {
+  background: linear-gradient(90deg,#f6e71d,#f5d10d);
+  color: #0b0b0b;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+}
+.primary-button:hover { filter: brightness(0.95); }
+
+.secondary-button {
+  background: transparent;
+  color: var(--amarelo-vibrante);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(246,231,29,0.18);
+  cursor: pointer;
+}
+.secondary-button:hover { background: rgba(246,231,29,0.06); }
+
+.btn { padding: 8px 12px; border-radius:6px; background: transparent; border: 1px solid rgba(246,231,29,0.12); color: var(--amarelo-vibrante); cursor:pointer; }
+.btn:hover { background: rgba(246,231,29,0.06); }
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .panel { margin: 12px; border-radius: 8px; }
+  .panel-header { padding: 12px; }
+  table thead th { display:none; }
+  table tbody td { display:block; width:100%; }
+  table tbody tr { margin-bottom: 12px; display:block; border-radius:8px; background:#fff; box-shadow:0 6px 16px rgba(2,6,23,0.03); }
+}
+
+footer {
+  background-color: var(--preto-suave);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: var(--cinza-claro);
+}
+
+/* Application logo image styling */
+.app-logo {
+  width: 140px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Text-based app logo matching site colors */
+.app-logo-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: transparent;
+  border-radius: 8px;
+  box-shadow: none;
+  font-family: 'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+.app-logo-text .app-logo-mark,
+.app-logo-text .app-logo-name {
+  color: var(--amarelo-vibrante);
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.6px rgba(0,0,0,0.6);
+  text-shadow: 0 6px 18px rgba(246,231,29,0.12), 0 1px 0 rgba(0,0,0,0.6);
+}
+.app-logo-text .app-logo-mark { margin-right: 2px; }
+
+/* Landing page specific adjustments */
+.hero-page { overflow: hidden; height: 100vh; }
+.hero-page header { background: transparent; position: absolute; top: 0; left: 0; width: 100%; z-index: 40; box-shadow: none; }
+.hero-page footer { display: none; }
+.hero-page .app-logo-text { background: transparent; box-shadow: none; }
+.hero-page .hero { min-height: 100vh; }

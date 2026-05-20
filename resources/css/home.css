@@ -15,7 +15,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--preto-intenso);
-  background-image: url('/images/iron-gym-gym.svg');
+  background-image: url('http://127.0.0.1:8000/images/iron-gym.svg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

@@ -3,7 +3,11 @@
 @section('title', 'Pagamentos - Iron Gym')
 
 @section('content')
-<section class="panel">
+<section class="panel" style="background-image: url('{{ asset('images/bg-gym.jpg') }}'); background-size: cover; background-position: center;">
+    <picture class="hero-bg" aria-hidden="true">
+        <source srcset="{{ asset('images/bg-gym.webp') }}" type="image/webp">
+        <img src="{{ asset('images/bg-gym.jpg') }}" alt="Pagamentos background" class="responsive-img">
+    </picture>
     <div class="panel-header">
         <div>
             <h2>Pagamentos</h2>
